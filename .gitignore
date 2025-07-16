@@ -1,1 +1,27 @@
-build
+# Build artifacts
+neuroran
+*.o
+*.out
+*.a
+*.so
+*.log
+
+# Test outputs
+test/test_policy_loader
+test/test_logger
+
+# Logs
+neuroran_events.log
+
+# Editor / OS junk
+*.swp
+*.DS_Store
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Docker
+*.tar
