@@ -1,17 +1,20 @@
-# Sunya: 3D Equation Visualization
+# NeuroRAN
 
-**Sunya** is a high-performance application designed for visualizing mathematical equations in 3D. The project integrates advanced image processing, machine learning, and GPU-accelerated rendering technologies.
+🧠 NeuroRAN is an **AI-native runtime agent** for next-gen 6G, edge, and secure telecom systems.  
+It enforces real-time policies, observes AI model behavior, and provides syscall-level telemetry for inference workloads.
 
-## **Features**
+## 🔍 What It Does
+- Observes and logs AI model inference on edge nodes
+- Detects abnormal syscall behavior (e.g. file access, fork bombs)
+- Applies YAML-defined security & network policies
+- Supports ONNX + InferLite runtimes
 
-- **Image Processing**: Detect and process handwritten equations using OpenCV and Tesseract OCR.
-- **Machine Learning**: Improve recognition accuracy with TensorFlow, accelerated by CUDA.
-- **3D Rendering**: Render equations in 3D using Vulkan and GLM.
-- **Geometric Computation**: Utilize CGAL and OpenMesh for meshing and geometric algorithms.
-- **Browser-Based UI**: Run the UI in the browser with Emscripten, Qt for WebAssembly, Three.js, and React.
-- **Backend Frameworks**: Boost.Beast or uWebSockets for WebSocket communication, gRPC for RPC, and C++ REST SDK for RESTful services.
-- **Cross-Platform GPU Support**: CUDA, HIP, ROCm, Intel oneAPI, and OpenCL.
-- **Optimization and Profiling**: Tools like NVIDIA Nsight, AMD ROCm Profiler, Intel VTune Profiler, gperftools, and RenderDoc for performance tuning.
+## 🚀 Goals
+- Built for edge, 5G/6G RAN, embedded Linux systems
+- Runs in Docker, K8s, or bare-metal
+- Open-source, vendor-neutral alternative to closed security agents
 
-## **Getting Started**
-**Work in Progress**
+## 🛠️ Quick Start
+```bash
+docker build -t neuroran-dev ./docker
+docker run --rm -it neuroran-dev
