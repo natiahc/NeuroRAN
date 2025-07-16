@@ -6,28 +6,30 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: neuroran-agent
+      app: neuroran
   template:
     metadata:
       labels:
-        app: neuroran-agent
+        app: neuroran
     spec:
       containers:
-      - name: agent
-        image: neuroran-dev:latest
-        securityContext:
-          privileged: true
-        volumeMounts:
-        - name: proc
-          mountPath: /host/proc
-          readOnly: true
-        - name: config
-          mountPath: /etc/neuroran
+        - name: neuroran
+          image: neuroran-dev:latest
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: proc
+              mountPath: /host/proc
+              readOnly: true
+            - name: policy
+              mountPath: /etc/neuroran
       volumes:
-      - name: proc
-        hostPath:
-          path: /proc
-      - name: config
-        configMap:
-          name: neuroran-policy
+        - name: proc
+          hostPath:
+            path: /proc
+        - name: policy
+          configMap:
+            name: neuroran-policy
+      hostPID: true
       restartPolicy: Always
