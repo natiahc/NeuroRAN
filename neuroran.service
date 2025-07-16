@@ -1,0 +1,13 @@
+[Unit]
+Description=NeuroRAN Runtime Security Agent
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/neuroran
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
