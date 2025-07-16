@@ -1,20 +1,31 @@
-# NeuroRAN
+# 🧠 NeuroRAN
 
-🧠 NeuroRAN is an **AI-native runtime agent** for next-gen 6G, edge, and secure telecom systems.  
-It enforces real-time policies, observes AI model behavior, and provides syscall-level telemetry for inference workloads.
+**NeuroRAN** is a lightweight, open-source runtime AI policy enforcement and syscall-level security agent designed for modern 5G/6G edge infrastructure, embedded Linux devices, and secure cloud-native systems.
+
+---
 
 ## 🔍 What It Does
-- Observes and logs AI model inference on edge nodes
-- Detects abnormal syscall behavior (e.g. file access, fork bombs)
-- Applies YAML-defined security & network policies
-- Supports ONNX + InferLite runtimes
 
-## 🚀 Goals
-- Built for edge, 5G/6G RAN, embedded Linux systems
-- Runs in Docker, K8s, or bare-metal
-- Open-source, vendor-neutral alternative to closed security agents
+- ⛔ Blocks unauthorized binaries (e.g., `netcat`, `ssh`)
+- 🧠 Audits inference activity using ONNX runtime
+- 🔐 Logs all events with cryptographic hash-chaining
+- 📡 Deploys as a DaemonSet, service, or bare-metal agent
 
-## 🛠️ Quick Start
+---
+
+## 💡 Use Cases
+
+- Telecom RAN security (6G/Edge)
+- Embedded Linux appliances (RTOS, gateways)
+- DevSecOps observability for inference nodes
+- Lightweight endpoint security for startups
+
+---
+
+## 🚀 Quick Start
+
 ```bash
-docker build -t neuroran-dev ./docker
-docker run --rm -it neuroran-dev
+git clone https://github.com/yourname/NeuroRAN.git
+cd NeuroRAN
+make
+sudo ./neuroran
