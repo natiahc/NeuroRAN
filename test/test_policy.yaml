@@ -1,0 +1,8 @@
+version: v1
+policy:
+  - name: block-nc
+    match:
+      syscall: execve
+      path: "/usr/bin/nc"
+    action: deny
+    reason: "netcat blocked"
