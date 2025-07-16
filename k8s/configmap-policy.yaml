@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: neuroran-policy
+  namespace: neuroran
+data:
+  default-policy.yaml: |
+    version: v1
+    policy:
+      - name: block-sensitive-binary
+        match:
+          syscall: execve
+          path: "/usr/bin/nc"
+        action: deny
+        reason: "Netcat not allowed"
+      
+      - name: monitor-model-load
+        match:
+          syscall: open
+          path: "/models/*.onnx"
+        action: audit
+        reason: "Track AI model loads"
+
+      - name: limit-socket-creation
+        match:
+          syscall: socket
+          domain: AF_INET
+        action: allow
+        max_per_minute: 10
+        reason: "Limit TCP socket creation rate"
