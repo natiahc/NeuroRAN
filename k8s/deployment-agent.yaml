@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: neuroran-agent
+  namespace: neuroran
+spec:
+  selector:
+    matchLabels:
+      app: neuroran-agent
+  template:
+    metadata:
+      labels:
+        app: neuroran-agent
+    spec:
+      containers:
+      - name: agent
+        image: neuroran-dev:latest
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: proc
+          mountPath: /host/proc
+          readOnly: true
+        - name: config
+          mountPath: /etc/neuroran
+      volumes:
+      - name: proc
+        hostPath:
+          path: /proc
+      - name: config
+        configMap:
+          name: neuroran-policy
+      restartPolicy: Always
